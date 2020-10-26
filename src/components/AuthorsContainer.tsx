@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { FlatList, ListRenderItemInfo } from "react-native";
 import { AuhtorItem } from "./AuhtorItem";
 
 import _ from "lodash";
@@ -19,7 +19,7 @@ export const AuthorsContainer: React.FC = () => {
   return (
     <FlatList
       data={data}
-      renderItem={() => <AuhtorItem />}
+      renderItem={item => <AuhtorItem id={item.item.id} />}
       keyExtractor={item => item.id}
       style={{ marginRight: -18, paddingRight: 18 }}
     />
