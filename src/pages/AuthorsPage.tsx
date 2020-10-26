@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AuthorsContainer, Header, RootContainer } from "../components";
 import { theme } from "../styles";
 
-import { fetchAuthors, fetchPosts, RootStateType } from "../store";
+import { fetchAuthors, fetchPosts, RootStateType } from "../state";
 
 export const AuthorsPage: React.FC = () => {
   const dispatch = useDispatch();

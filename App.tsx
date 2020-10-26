@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { AuthorsPage } from "./src/pages/AuthorsPage";
 import { PostsPage } from "./src/pages/PostsPage";
 
-import { store } from "./src/store";
+import { store } from "./src/state";
 
 const Stack = createStackNavigator();
 
