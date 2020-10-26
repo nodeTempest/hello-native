@@ -7,7 +7,7 @@ import { globalStyles } from "./theme";
 
 export const Header: React.FC = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={[globalStyles.textNormal, styles.headerTitle]}>Authors</Text>
       <SearchInput />
     </View>
@@ -15,6 +15,9 @@ export const Header: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    marginBottom: 24,
+  },
   headerTitle: {
     marginBottom: 8,
   },

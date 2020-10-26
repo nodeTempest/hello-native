@@ -10,7 +10,7 @@ export const theme = {
   lineHeights: [16, 24],
   letterSpacing: 0.44,
   fontFamily: "Roboto",
-  fontWeight: "400" as TextStyle["fontWeight"],
+  fontWeights: ["400", "500"] as TextStyle["fontWeight"][],
 };
 
 export const globalStyles = StyleSheet.create({
@@ -20,7 +20,7 @@ export const globalStyles = StyleSheet.create({
     fontSize: theme.fontSizes[1],
     lineHeight: theme.lineHeights[1],
     fontFamily: theme.fontFamily,
-    fontWeight: theme.fontWeight,
+    fontWeight: theme.fontWeights[0],
   },
   textSmall: {
     color: theme.colors.greys[1],
@@ -28,6 +28,6 @@ export const globalStyles = StyleSheet.create({
     fontSize: theme.fontSizes[0],
     lineHeight: theme.lineHeights[0],
     fontFamily: theme.fontFamily,
-    fontWeight: theme.fontWeight,
+    fontWeight: theme.fontWeights[0],
   },
 });
