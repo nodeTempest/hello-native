@@ -2,6 +2,8 @@ import React from "react";
 import { View, TextInput, StyleSheet } from "react-native";
 import Svg, { Path } from "react-native-svg";
 
+import { theme, globalStyles } from "./theme";
+
 export const SearchInput: React.FC = () => {
   return (
     <View style={styles.container}>
@@ -18,7 +20,7 @@ export const SearchInput: React.FC = () => {
         />
       </Svg>
       <TextInput
-        style={styles.input}
+        style={[globalStyles.textNormal, styles.input]}
         onChangeText={text => 0}
         placeholder="Search"
       />
@@ -35,14 +37,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   input: {
-    backgroundColor: "#3E262A3D",
-    color: "#382A2C",
-    textDecorationLine: "none",
+    backgroundColor: theme.colors.greys[0],
     paddingLeft: iconTotalWidth,
     marginLeft: -iconTotalWidth,
     flex: 1,
     borderRadius: 4,
     paddingVertical: 4,
+    color: theme.colors.greys[1],
   },
   icon: {
     marginHorizontal: iconMarginHorizontal,
