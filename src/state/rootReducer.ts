@@ -1,24 +1,32 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-interface IData {
+interface IAuthor {
   id: string;
+  fullName: string;
+  email: string;
 }
 
-export const fetchAuthors = createAsyncThunk<IData[]>(
+interface IPost {
+  id: string;
+  title: string;
+  content: string;
+}
+
+export const fetchAuthors = createAsyncThunk<IAuthor[]>(
   "app/fetchAuthors",
   async () => {
-    const response = await axios.get<IData[]>(
+    const response = await axios.get<IAuthor[]>(
       "https://jsonplaceholder.typicode.com/users"
     );
     return response.data;
   }
 );
 
-export const fetchPosts = createAsyncThunk<IData[]>(
+export const fetchPosts = createAsyncThunk<IPost[]>(
   "app/fetchPosts",
   async () => {
-    const response = await axios.get<IData[]>(
+    const response = await axios.get<IPost[]>(
       "https://jsonplaceholder.typicode.com/posts"
     );
     return response.data;
@@ -26,8 +34,8 @@ export const fetchPosts = createAsyncThunk<IData[]>(
 );
 
 interface IState {
-  authors: IData[];
-  posts: IData[];
+  authors: IAuthor[];
+  posts: IPost[];
 }
 
 const initialState: IState = {
