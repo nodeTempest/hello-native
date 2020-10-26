@@ -1,20 +1,24 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
-import { Header } from "./src/components/Header";
-import { AuthorsContainer } from "./src/components/AuthorsContainer";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
+import { AuthorsPage } from "./src/pages/AuthorsPage";
+import { PostsPage } from "./src/pages/PostsPage";
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Header />
-      <AuthorsContainer />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Authors"
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="Authors" component={AuthorsPage} />
+        <Stack.Screen name="Posts" component={PostsPage} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 32,
-    paddingHorizontal: 18,
-  },
-});
