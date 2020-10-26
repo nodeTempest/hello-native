@@ -3,6 +3,7 @@ import { TextStyle } from "react-native";
 export const theme = {
   colors: {
     black: "#000",
+    white: "#FFF",
     greys: ["#3E262A3D", "#382A2C"],
     green: "#6FCF97",
   },

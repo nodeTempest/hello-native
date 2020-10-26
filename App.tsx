@@ -11,7 +11,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Authors"
+        initialRouteName="Posts"
         screenOptions={{
           headerShown: false,
         }}

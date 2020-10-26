@@ -1,17 +1,38 @@
 import React from "react";
-import { Text } from "react-native";
+import { FlatList } from "react-native";
 import { useRoute, RouteProp } from "@react-navigation/native";
+import _ from "lodash";
+
+import { PostItem } from "./PostItem";
+
+const item = {
+  title: "Post title",
+  content:
+    "        tempore vitae sequi sint nihil reprehenderit dolor beatae ea doloresneque fugiat blanditiis voluptate porro vel nihil",
+};
+
+const data = _.range(0, 10).map(index => ({
+  ...item,
+  id: index.toString(),
+}));
 
 export const PostsContainer: React.FC = () => {
   const route = useRoute<RouteProp<{ Posts: { id: string } }, "Posts">>();
 
-  console.log(route);
-
   const [id, setId] = React.useState("");
 
   React.useEffect(() => {
-    setId(route.params.id);
+    if (route?.params?.id) {
+      setId(route.params.id);
+    }
   }, [route.params?.id]);
 
-  return <Text>Posts id: {id}</Text>;
+  return (
+    <FlatList
+      data={data}
+      renderItem={item => <PostItem id={item.item.id} />}
+      keyExtractor={item => item.id}
+      style={{ marginRight: -18, paddingRight: 18 }}
+    />
+  );
 };
