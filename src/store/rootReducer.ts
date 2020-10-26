@@ -40,3 +40,5 @@ const appSlice = createSlice({
 });
 
 export const { reducer: rootReducer } = appSlice;
+
+export type RootStateType = ReturnType<typeof rootReducer>;
