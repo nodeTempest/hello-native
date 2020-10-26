@@ -25,9 +25,19 @@ export const fetchPosts = createAsyncThunk<IData[]>(
   }
 );
 
+interface IState {
+  authors: IData[];
+  posts: IData[];
+}
+
+const initialState: IState = {
+  authors: [],
+  posts: [],
+};
+
 const appSlice = createSlice({
   name: "app",
-  initialState: { authors: [] as IData[], posts: [] as IData[] },
+  initialState,
   reducers: {},
   extraReducers: builder => {
     builder.addCase(fetchAuthors.fulfilled, (state, action) => {
