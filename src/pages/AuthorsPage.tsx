@@ -1,21 +1,12 @@
-import { fromPairs } from "lodash";
 import React from "react";
-import { View, StyleSheet } from "react-native";
 
-import { AuthorsContainer, Header } from "../components";
+import { AuthorsContainer, Header, RootContainer } from "../components";
 
 export const AuthorsPage: React.FC = () => {
   return (
-    <View style={styles.container}>
+    <RootContainer>
       <Header />
       <AuthorsContainer />
-    </View>
+    </RootContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 32,
-    paddingHorizontal: 18,
-  },
-});

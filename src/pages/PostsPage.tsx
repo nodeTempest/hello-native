@@ -1,20 +1,12 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
 
-import { PostsContainer, Header } from "../components";
+import { PostsContainer, Header, RootContainer } from "../components";
 
 export const PostsPage: React.FC = () => {
   return (
-    <View style={styles.container}>
+    <RootContainer>
       <Header />
       <PostsContainer />
-    </View>
+    </RootContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 32,
-    paddingHorizontal: 18,
-  },
-});
