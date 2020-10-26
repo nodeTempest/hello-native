@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { Header } from "./components/Header";
-import { AuthorsContainer } from "./components/AuthorsContainer";
+import { Header } from "./src/components/Header";
+import { AuthorsContainer } from "./src/components/AuthorsContainer";
 
 export default function App() {
   return (

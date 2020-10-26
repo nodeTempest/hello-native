@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { SearchInput } from "./SearchInput";
 
-import { globalStyles } from "./theme";
+import { globalStyles } from "../styles";
 
 export const Header: React.FC = () => {
   return (

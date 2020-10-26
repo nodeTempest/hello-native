@@ -2,7 +2,7 @@ import React from "react";
 import { View, TextInput, StyleSheet } from "react-native";
 import Svg, { Path } from "react-native-svg";
 
-import { theme, globalStyles } from "./theme";
+import { theme, globalStyles } from "../styles";
 
 export const SearchInput: React.FC = () => {
   return (
