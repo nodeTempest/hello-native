@@ -1,7 +1,10 @@
 import { IAuthor, IPost } from "../state";
 
-export const calculatePostsForOneAuthor = (author: IAuthor, posts: IPost[]) => {
-  return posts.filter(post => post.userId === author.id).length;
+export const calculatePostsForOneAuthor = (
+  AuthorId: string,
+  posts: IPost[]
+) => {
+  return posts.filter(post => post.userId === AuthorId).length;
 };
 
 export const calculatePostsForEachAuthor = (
@@ -9,7 +12,7 @@ export const calculatePostsForEachAuthor = (
   posts: IPost[]
 ) => {
   return authors.map(author => {
-    const numberOfPosts = calculatePostsForOneAuthor(author, posts);
+    const numberOfPosts = calculatePostsForOneAuthor(author.id, posts);
     return {
       ...author,
       numberOfPosts,

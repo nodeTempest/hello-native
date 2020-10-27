@@ -3,7 +3,7 @@ import axios from "axios";
 
 interface IFetchAuthor {
   id: number;
-  fullName: string;
+  name: string;
   email: string;
 }
 

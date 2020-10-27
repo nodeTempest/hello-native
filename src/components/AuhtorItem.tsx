@@ -2,11 +2,22 @@ import React from "react";
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from "react-native";
 import Svg, { Path } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
+import { useSelector } from "react-redux";
 
 import { theme, globalStyles } from "../styles";
+import { IAuthor, RootStateType } from "../state";
+import { calculatePostsForOneAuthor } from "../utils";
 
-export const AuhtorItem: React.FC<{ id: string }> = ({ id }) => {
+export const AuhtorItem: React.FC<IAuthor> = ({ id, name, email }) => {
   const navigation = useNavigation();
+  const { posts } = useSelector((state: RootStateType) => state);
+  // const numberOfPosts = calculatePostsForOneAuthor(id, posts);
+
+  const [numberOfPosts, setNumberOfPosts] = React.useState(0);
+
+  React.useEffect(() => {
+    setNumberOfPosts(calculatePostsForOneAuthor(id, posts));
+  }, [posts]);
 
   return (
     <TouchableWithoutFeedback
@@ -15,12 +26,12 @@ export const AuhtorItem: React.FC<{ id: string }> = ({ id }) => {
       <View style={styles.container}>
         <Text style={[styles.initials, globalStyles.textNormal]}>JS</Text>
         <View style={styles.nameEmailContainer}>
-          <Text style={globalStyles.textNormal}>James Smith</Text>
-          <Text style={globalStyles.textSmall}>johndoe@mail.com</Text>
+          <Text style={globalStyles.textNormal}>{name}</Text>
+          <Text style={globalStyles.textSmall}>{email}</Text>
         </View>
         <View style={styles.postsArrowContainer}>
           <Text style={[styles.postsText, globalStyles.textNormal]}>
-            5 posts
+            {numberOfPosts}
           </Text>
           <Svg
             style={styles.arrowIcon}

@@ -26,7 +26,7 @@ export const AuthorsPage: React.FC = () => {
     <RootContainer>
       <StatusBar backgroundColor={theme.colors.greys[0]} />
       <Header />
-      <AuthorsContainer />
+      <AuthorsContainer auhtors={authors} />
     </RootContainer>
   );
 };

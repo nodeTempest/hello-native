@@ -1,8 +1,9 @@
 import React from "react";
-import { FlatList, ListRenderItemInfo } from "react-native";
+import { FlatList } from "react-native";
 import { AuhtorItem } from "./AuhtorItem";
-
 import _ from "lodash";
+
+import { IAuthor } from "../state";
 
 const item = {
   name: "James Smith",
@@ -15,11 +16,17 @@ const data = _.range(0, 10).map(id => ({
   id: id.toString(),
 }));
 
-export const AuthorsContainer: React.FC = () => {
+interface IAuthorsContainerProp {
+  auhtors: IAuthor[];
+}
+
+export const AuthorsContainer: React.FC<IAuthorsContainerProp> = ({
+  auhtors,
+}) => {
   return (
     <FlatList
-      data={data}
-      renderItem={item => <AuhtorItem id={item.item.id} />}
+      data={auhtors}
+      renderItem={item => <AuhtorItem {...item.item} />}
       keyExtractor={item => item.id}
       style={{ marginRight: -18, paddingRight: 18 }}
     />
