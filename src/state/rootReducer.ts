@@ -1,17 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-interface IFetchAuthor {
+export interface IAuthor {
   id: number;
   name: string;
   email: string;
 }
 
-export type IAuthor = Omit<IFetchAuthor, "id"> & { id: string };
-
 export interface IPost {
-  userId: string;
-  id: string;
+  userId: number;
+  id: number;
   title: string;
   content: string;
 }
@@ -19,13 +17,10 @@ export interface IPost {
 export const fetchAuthors = createAsyncThunk<IAuthor[]>(
   "app/fetchAuthors",
   async () => {
-    const response = await axios.get<IFetchAuthor[]>(
+    const response = await axios.get<IAuthor[]>(
       "https://jsonplaceholder.typicode.com/users"
     );
-    return response.data.map(author => ({
-      ...author,
-      id: author.id.toString(),
-    }));
+    return response.data;
   }
 );
 

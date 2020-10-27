@@ -6,11 +6,14 @@ import { AuthorsContainer, Header, RootContainer } from "../components";
 import { theme } from "../styles";
 
 import { fetchAuthors, fetchPosts, RootStateType } from "../state";
+import { calculatePostsForEachAuthor } from "../utils";
 
 export const AuthorsPage: React.FC = () => {
   const dispatch = useDispatch();
 
   const { authors, posts } = useSelector((state: RootStateType) => state);
+
+  const authorsWithNumberOfPosts = calculatePostsForEachAuthor(authors, posts);
 
   React.useEffect(() => {
     if (authors.length === 0) {
@@ -26,7 +29,7 @@ export const AuthorsPage: React.FC = () => {
     <RootContainer>
       <StatusBar backgroundColor={theme.colors.greys[0]} />
       <Header />
-      <AuthorsContainer auhtors={authors} />
+      <AuthorsContainer auhtors={authorsWithNumberOfPosts} />
     </RootContainer>
   );
 };

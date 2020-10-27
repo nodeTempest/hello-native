@@ -2,22 +2,19 @@ import React from "react";
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from "react-native";
 import Svg, { Path } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
-import { useSelector } from "react-redux";
 
 import { theme, globalStyles } from "../styles";
 import { IAuthor, RootStateType } from "../state";
-import { calculatePostsForOneAuthor } from "../utils";
 
-export const AuhtorItem: React.FC<IAuthor> = ({ id, name, email }) => {
+type IAuhtorItemProps = IAuthor & { numberOfPosts?: number };
+
+export const AuhtorItem: React.FC<IAuhtorItemProps> = ({
+  id,
+  name,
+  email,
+  numberOfPosts = 0,
+}) => {
   const navigation = useNavigation();
-  const { posts } = useSelector((state: RootStateType) => state);
-  // const numberOfPosts = calculatePostsForOneAuthor(id, posts);
-
-  const [numberOfPosts, setNumberOfPosts] = React.useState(0);
-
-  React.useEffect(() => {
-    setNumberOfPosts(calculatePostsForOneAuthor(id, posts));
-  }, [posts]);
 
   return (
     <TouchableWithoutFeedback

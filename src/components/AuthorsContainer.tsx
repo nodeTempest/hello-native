@@ -27,7 +27,7 @@ export const AuthorsContainer: React.FC<IAuthorsContainerProp> = ({
     <FlatList
       data={auhtors}
       renderItem={item => <AuhtorItem {...item.item} />}
-      keyExtractor={item => item.id}
+      keyExtractor={item => item.id.toString()}
       style={{ marginRight: -18, paddingRight: 18 }}
     />
   );
