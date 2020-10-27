@@ -1,16 +1,16 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import _ from "lodash";
 
 import { theme, globalStyles } from "../styles";
 
 import { IPost } from "../state";
-import { capitalize } from "../utils";
 
 export const PostItem: React.FC<IPost> = ({ title, body }) => {
   return (
     <View style={styles.container}>
       <Text style={[styles.postTitle, globalStyles.textNormal]}>
-        {capitalize(title)}
+        {_.capitalize(title)}
       </Text>
       <Text style={[globalStyles.textSmall]}>{body}</Text>
     </View>
