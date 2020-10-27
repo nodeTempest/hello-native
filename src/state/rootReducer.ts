@@ -1,13 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-interface IAuthor {
+export interface IAuthor {
   id: string;
   fullName: string;
   email: string;
 }
 
-interface IPost {
+export interface IPost {
+  userId: string;
   id: string;
   title: string;
   content: string;
