@@ -5,17 +5,6 @@ import _ from "lodash";
 
 import { IAuthor } from "../state";
 
-const item = {
-  name: "James Smith",
-  email: "johndoe@mail.com",
-  posts: 5,
-};
-
-const data = _.range(0, 10).map(id => ({
-  ...item,
-  id: id.toString(),
-}));
-
 interface IAuthorsContainerProp {
   auhtors: IAuthor[];
 }

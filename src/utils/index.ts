@@ -17,6 +17,6 @@ export const calculatePostsForEachAuthor = (
   });
 };
 
-export const getPostsForAuthor = (posts: IPost[], author: IAuthor) => {
-  return posts.filter(post => post.userId === author.id);
+export const getPostsByAuthorId = (posts: IPost[], authorId: number) => {
+  return posts.filter(post => post.userId === authorId);
 };

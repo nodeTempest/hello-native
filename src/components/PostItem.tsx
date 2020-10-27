@@ -3,16 +3,13 @@ import { View, Text, StyleSheet } from "react-native";
 
 import { theme, globalStyles } from "../styles";
 
-export const PostItem: React.FC<{ id: string }> = () => {
+import { IPost } from "../state";
+
+export const PostItem: React.FC<IPost> = ({ title, body }) => {
   return (
     <View style={styles.container}>
-      <Text style={[styles.postTitle, globalStyles.textNormal]}>
-        Post title
-      </Text>
-      <Text style={[globalStyles.textSmall]}>
-        tempore vitae sequi sint nihil reprehenderit dolor beatae ea dolores
-        neque fugiat blanditiis voluptate porro vel nihil
-      </Text>
+      <Text style={[styles.postTitle, globalStyles.textNormal]}>{title}</Text>
+      <Text style={[globalStyles.textSmall]}>{body}</Text>
     </View>
   );
 };
