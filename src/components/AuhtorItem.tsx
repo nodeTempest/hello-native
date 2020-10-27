@@ -11,14 +11,14 @@ import { getInitials } from "../utils";
 
 type IAuhtorItemProps = IAuthor & {
   numberOfPosts?: number;
-  searchValue: string;
+  searchValue?: string;
 };
 
 export const AuhtorItem: React.FC<IAuhtorItemProps> = ({
   id,
   name,
   email,
-  searchValue,
+  searchValue = "",
   numberOfPosts = 0,
 }) => {
   const navigation = useNavigation();
@@ -37,14 +37,14 @@ export const AuhtorItem: React.FC<IAuhtorItemProps> = ({
           <Highlighter
             style={globalStyles.textNormal}
             highlightText={searchValue}
-            highlightStyle={styles.highlight}
+            highlightStyle={globalStyles.highlight}
           >
             {name}
           </Highlighter>
           <Highlighter
             style={globalStyles.textSmall}
             highlightText={searchValue}
-            highlightStyle={styles.highlight}
+            highlightStyle={globalStyles.highlight}
           >
             {email}
           </Highlighter>
@@ -93,9 +93,5 @@ const styles = StyleSheet.create({
   },
   postsText: {
     marginRight: 12,
-  },
-  highlight: {
-    backgroundColor: theme.colors.green,
-    color: theme.colors.white,
   },
 });

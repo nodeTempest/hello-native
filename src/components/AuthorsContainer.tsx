@@ -7,7 +7,7 @@ import { IAuthor } from "../state";
 
 interface IAuthorsContainerProp {
   auhtors: IAuthor[];
-  searchValue: string;
+  searchValue?: string;
 }
 
 export const AuthorsContainer: React.FC<IAuthorsContainerProp> = ({

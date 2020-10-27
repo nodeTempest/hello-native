@@ -2,17 +2,34 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import _ from "lodash";
 
-import { theme, globalStyles } from "../styles";
+import { Highlighter } from "./Highlighter";
 
+import { theme, globalStyles } from "../styles";
 import { IPost } from "../state";
 
-export const PostItem: React.FC<IPost> = ({ title, body }) => {
+type IPostItemProps = IPost & { searchValue?: string };
+
+export const PostItem: React.FC<IPostItemProps> = ({
+  title,
+  body,
+  searchValue = "",
+}) => {
   return (
     <View style={styles.container}>
-      <Text style={[styles.postTitle, globalStyles.textNormal]}>
+      <Highlighter
+        highlightText={searchValue}
+        style={[styles.postTitle, globalStyles.textNormal]}
+        highlightStyle={globalStyles.highlight}
+      >
         {_.capitalize(title)}
-      </Text>
-      <Text style={[globalStyles.textSmall]}>{body}</Text>
+      </Highlighter>
+      <Highlighter
+        highlightText={searchValue}
+        style={globalStyles.textSmall}
+        highlightStyle={globalStyles.highlight}
+      >
+        {body}
+      </Highlighter>
     </View>
   );
 };

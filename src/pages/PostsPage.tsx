@@ -34,7 +34,7 @@ export const PostsPage: React.FC = () => {
         OnSearchInput={text => setSearchInput(text)}
         title={route.params?.name + "'s Posts"}
       />
-      <PostsContainer posts={matchPosts} />
+      <PostsContainer posts={matchPosts} searchValue={searchInput} />
     </RootContainer>
   );
 };

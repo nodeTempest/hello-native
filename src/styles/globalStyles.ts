@@ -19,4 +19,8 @@ export const globalStyles = StyleSheet.create({
     fontFamily: theme.fontFamily,
     fontWeight: theme.fontWeights[0],
   },
+  highlight: {
+    backgroundColor: theme.colors.green,
+    color: theme.colors.white,
+  },
 });

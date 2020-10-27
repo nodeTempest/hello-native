@@ -4,8 +4,8 @@ import { Text, StyleSheet, TextStyle } from "react-native";
 interface IHighlighterProps {
   children: string;
   highlightText?: string;
-  style?: TextStyle;
-  highlightStyle?: TextStyle;
+  style?: TextStyle | TextStyle[];
+  highlightStyle?: TextStyle | TextStyle[];
 }
 
 export const Highlighter: React.FC<IHighlighterProps> = ({
