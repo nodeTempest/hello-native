@@ -3,16 +3,22 @@ import { StyleSheet, Text, View, TouchableWithoutFeedback } from "react-native";
 import Svg, { Path } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
 
+import { Highlighter } from "./Highlighter";
+
 import { theme, globalStyles } from "../styles";
 import { IAuthor } from "../state";
 import { getInitials } from "../utils";
 
-type IAuhtorItemProps = IAuthor & { numberOfPosts?: number };
+type IAuhtorItemProps = IAuthor & {
+  numberOfPosts?: number;
+  searchValue: string;
+};
 
 export const AuhtorItem: React.FC<IAuhtorItemProps> = ({
   id,
   name,
   email,
+  searchValue,
   numberOfPosts = 0,
 }) => {
   const navigation = useNavigation();
@@ -28,20 +34,26 @@ export const AuhtorItem: React.FC<IAuhtorItemProps> = ({
           {getInitials(name)}
         </Text>
         <View style={styles.nameEmailContainer}>
-          <Text style={globalStyles.textNormal}>{name}</Text>
-          <Text style={globalStyles.textSmall}>{email}</Text>
+          <Highlighter
+            style={globalStyles.textNormal}
+            highlightText={searchValue}
+            highlightStyle={styles.highlight}
+          >
+            {name}
+          </Highlighter>
+          <Highlighter
+            style={globalStyles.textSmall}
+            highlightText={searchValue}
+            highlightStyle={styles.highlight}
+          >
+            {email}
+          </Highlighter>
         </View>
         <View style={styles.postsArrowContainer}>
           <Text style={[styles.postsText, globalStyles.textNormal]}>
             {numberOfPosts}
           </Text>
-          <Svg
-            style={styles.arrowIcon}
-            width="8"
-            height="12"
-            viewBox="0 0 8 12"
-            fill="none"
-          >
+          <Svg width="8" height="12" viewBox="0 0 8 12" fill="none">
             <Path
               d="M3.8147e-06 1.41L4.58 6L3.8147e-06 10.59L1.41 12L7.41 6L1.41 0L3.8147e-06 1.41Z"
               fill="#382A2C"
@@ -82,5 +94,8 @@ const styles = StyleSheet.create({
   postsText: {
     marginRight: 12,
   },
-  arrowIcon: {},
+  highlight: {
+    backgroundColor: theme.colors.green,
+    color: theme.colors.white,
+  },
 });
