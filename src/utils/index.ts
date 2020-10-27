@@ -35,3 +35,11 @@ export const findAuthorsBySearch = (authors: IAuthor[], input: string) => {
       .some(s => s.includes(input.toLowerCase()))
   );
 };
+
+export const findPostsBySearch = (posts: IPost[], input: string) => {
+  return posts.filter(post =>
+    [post.title, post.body]
+      .map(s => s.toLowerCase())
+      .some(s => s.includes(input.toLowerCase()))
+  );
+};
