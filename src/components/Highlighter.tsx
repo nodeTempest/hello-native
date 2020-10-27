@@ -19,7 +19,7 @@ export const Highlighter: React.FC<IHighlighterProps> = ({
       {highlightText.length === 0
         ? children
         : children
-            .replace(new RegExp(highlightText, "i"), `~${highlightText}~`)
+            .replace(new RegExp(`(${highlightText})`, "gi"), "~$1~")
             .split("~")
             .map((str, i) => (
               <Text style={i % 2 == 0 ? undefined : highlightStyle}>{str}</Text>
