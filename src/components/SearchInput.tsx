@@ -1,10 +1,14 @@
 import React from "react";
-import { View, TextInput, StyleSheet } from "react-native";
+import { View, TextInput, StyleSheet, TextInputProps } from "react-native";
 import Svg, { Path } from "react-native-svg";
 
 import { theme, globalStyles } from "../styles";
 
-export const SearchInput: React.FC = () => {
+interface ISearchInputProps {
+  OnSearchInput: TextInputProps["onChangeText"];
+}
+
+export const SearchInput: React.FC<ISearchInputProps> = ({ OnSearchInput }) => {
   return (
     <View style={styles.container}>
       <Svg
@@ -21,8 +25,8 @@ export const SearchInput: React.FC = () => {
       </Svg>
       <TextInput
         style={[globalStyles.textNormal, styles.input]}
-        onChangeText={text => 0}
         placeholder="Search"
+        onChangeText={OnSearchInput}
       />
     </View>
   );

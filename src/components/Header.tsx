@@ -1,15 +1,19 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TextInputProps } from "react-native";
 
 import { SearchInput } from "./SearchInput";
 
 import { globalStyles } from "../styles";
 
-export const Header: React.FC = () => {
+interface IHeaderProps {
+  OnSearchInput: TextInputProps["onChangeText"];
+}
+
+export const Header: React.FC<IHeaderProps> = ({ OnSearchInput }) => {
   return (
     <View style={styles.container}>
       <Text style={[globalStyles.textNormal, styles.headerTitle]}>Authors</Text>
-      <SearchInput />
+      <SearchInput OnSearchInput={OnSearchInput} />
     </View>
   );
 };
