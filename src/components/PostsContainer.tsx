@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 import { useRoute, RouteProp } from "@react-navigation/native";
 import _ from "lodash";
 
@@ -32,7 +32,14 @@ export const PostsContainer: React.FC = () => {
       data={data}
       renderItem={item => <PostItem id={item.item.id} />}
       keyExtractor={item => item.id}
-      style={{ marginRight: -18, paddingRight: 18 }}
+      style={styles.container}
     />
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    marginRight: -18,
+    paddingRight: 18,
+  },
+});

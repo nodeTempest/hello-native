@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 import { AuhtorItem } from "./AuhtorItem";
 import _ from "lodash";
 
@@ -28,7 +28,14 @@ export const AuthorsContainer: React.FC<IAuthorsContainerProp> = ({
       data={auhtors}
       renderItem={item => <AuhtorItem {...item.item} />}
       keyExtractor={item => item.id.toString()}
-      style={{ marginRight: -18, paddingRight: 18 }}
+      style={styles.container}
     />
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    marginRight: -18,
+    paddingRight: 18,
+  },
+});
