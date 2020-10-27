@@ -4,7 +4,8 @@ import Svg, { Path } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
 
 import { theme, globalStyles } from "../styles";
-import { IAuthor, RootStateType } from "../state";
+import { IAuthor } from "../state";
+import { getInitials } from "../utils";
 
 type IAuhtorItemProps = IAuthor & { numberOfPosts?: number };
 
@@ -21,7 +22,9 @@ export const AuhtorItem: React.FC<IAuhtorItemProps> = ({
       onPress={() => navigation.navigate("Posts", { id })}
     >
       <View style={styles.container}>
-        <Text style={[styles.initials, globalStyles.textNormal]}>JS</Text>
+        <Text style={[styles.initials, globalStyles.textNormal]}>
+          {getInitials(name)}
+        </Text>
         <View style={styles.nameEmailContainer}>
           <Text style={globalStyles.textNormal}>{name}</Text>
           <Text style={globalStyles.textSmall}>{email}</Text>

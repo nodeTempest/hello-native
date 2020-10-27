@@ -20,3 +20,9 @@ export const calculatePostsForEachAuthor = (
 export const getPostsByAuthorId = (posts: IPost[], authorId: number) => {
   return posts.filter(post => post.userId === authorId);
 };
+
+export const getInitials = (name: string) =>
+  name
+    .split(" ")
+    .map(str => str.charAt(0).toUpperCase())
+    .join("");
