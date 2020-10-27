@@ -7,12 +7,13 @@ import { globalStyles } from "../styles";
 
 interface IHeaderProps {
   OnSearchInput: TextInputProps["onChangeText"];
+  title: string;
 }
 
-export const Header: React.FC<IHeaderProps> = ({ OnSearchInput }) => {
+export const Header: React.FC<IHeaderProps> = ({ OnSearchInput, title }) => {
   return (
     <View style={styles.container}>
-      <Text style={[globalStyles.textNormal, styles.headerTitle]}>Authors</Text>
+      <Text style={[globalStyles.textNormal, styles.headerTitle]}>{title}</Text>
       <SearchInput OnSearchInput={OnSearchInput} />
     </View>
   );

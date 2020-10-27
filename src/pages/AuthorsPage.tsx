@@ -35,7 +35,7 @@ export const AuthorsPage: React.FC = () => {
   return (
     <RootContainer>
       <StatusBar backgroundColor={theme.colors.greys[0]} />
-      <Header OnSearchInput={text => setSearchInput(text)} />
+      <Header OnSearchInput={text => setSearchInput(text)} title={"Authors"} />
       <AuthorsContainer auhtors={authorsWithNumberOfPosts} />
     </RootContainer>
   );

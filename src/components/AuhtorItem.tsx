@@ -19,7 +19,9 @@ export const AuhtorItem: React.FC<IAuhtorItemProps> = ({
 
   return (
     <TouchableWithoutFeedback
-      onPress={() => navigation.navigate("Posts", { id })}
+      onPress={() =>
+        navigation.navigate("Posts", { id, name, email, numberOfPosts })
+      }
     >
       <View style={styles.container}>
         <Text style={[styles.initials, globalStyles.textNormal]}>
